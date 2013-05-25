@@ -1,0 +1,10 @@
+.classpath
+*/.classpath
+/.settings/**
+*/.settings/**
+.project
+*/.project
+/target/**
+*/target/**
+.DS_Store
+**/.DS_Store
