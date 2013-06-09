@@ -9,4 +9,6 @@ public interface AssetService {
 	public double getAssetMarketValue(Asset asset, long regionID);
 	
 	public List<Asset> loadCharacterAssets(Character character, long regionID);
+	
+	public List<Asset> loadCorporationAssets(Character character, long regionID);
 }

@@ -30,6 +30,12 @@ public class MarketStats {
 	public void setBuyStats(Stat buyStats) {
 		this.buyStats = buyStats;
 	}
+	
+	public double getResellRatio(){
+		return	(	this.getBuyStats().getAvg() - 
+						this.getSellStats().getAvg()
+				) / this.getBuyStats().getAvg();
+	}
 
 	public Stat getSellStats() {
 		return sellStats;

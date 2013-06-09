@@ -10,4 +10,15 @@
         driverClassName="com.mysql.jdbc.Driver"
         url="jdbc:mysql://localhost:3306/eve"
 	/>
+	
+    <Resource 
+    	name="jdbc/jeve"
+        auth="Container"
+        type="javax.sql.DataSource"
+        factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+        username="jeve"
+        password="jeve"
+        driverClassName="com.mysql.jdbc.Driver"
+        url="jdbc:mysql://localhost:3306/jeve"
+	/>
 </Context>

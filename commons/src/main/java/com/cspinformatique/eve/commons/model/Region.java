@@ -1,5 +1,12 @@
 package com.cspinformatique.eve.commons.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="mapRegions")
 public class Region {
 	public long id;
 	public String name;
@@ -13,6 +20,8 @@ public class Region {
 		this.name = name;
 	}
 
+	@Id
+	@Column(name="regionID")
 	public long getId() {
 		return id;
 	}
@@ -21,6 +30,7 @@ public class Region {
 		this.id = id;
 	}
 
+	@Column(name="regionName")
 	public String getName() {
 		return name;
 	}

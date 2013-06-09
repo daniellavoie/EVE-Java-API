@@ -1,0 +1,15 @@
+.keyManagement .addKey td{
+	text-align: center;
+}
+
+.keyManagement .newKey{
+	display: none;
+}
+
+.error.confirmPassword{
+	display: none;
+}
+
+nav .characterAssets, nav .corporationAssets{
+	display: none;
+}

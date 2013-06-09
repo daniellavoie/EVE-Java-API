@@ -1,5 +1,6 @@
 package com.cspinformatique.eve.commons.connector;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -11,13 +12,18 @@ import javax.xml.xpath.XPathFactory;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 public abstract class RestConnector {
-	private static XPath xpath = XPathFactory.newInstance().newXPath();
+	protected static XPath XPATH = XPathFactory.newInstance().newXPath();
 	
-	protected Document executeRequest(String url, String resource, List<String> params){
+	public Document executeRequest(String url, String resource){
+		return this.executeRequest(url, resource, new ArrayList<String>());
+	}
+	
+	public Document executeRequest(String url, String resource, List<String> params){
 		try{
 			StringBuffer urlBuffer = new StringBuffer();
 			
@@ -54,9 +60,17 @@ public abstract class RestConnector {
 		}
 	}
 	
-	public static NodeList getNodeList(String expr, Document document) {
+	public static Node getNode(String expr, Object document) {
 	    try {
-	        return (NodeList) xpath.compile(expr).evaluate(document, XPathConstants.NODESET);
+	        return (Node) XPATH.compile(expr).evaluate(document, XPathConstants.NODE);
+	    } catch (XPathExpressionException XPathExpressionEx) {
+	       throw new RuntimeException(XPathExpressionEx);
+	    }
+	}
+	
+	public static NodeList getNodeList(String expr, Object document) {
+	    try {
+	        return (NodeList) XPATH.compile(expr).evaluate(document, XPathConstants.NODESET);
 	    } catch (XPathExpressionException XPathExpressionEx) {
 	       throw new RuntimeException(XPathExpressionEx);
 	    }
@@ -64,7 +78,13 @@ public abstract class RestConnector {
 	
 	public static String extractField(String path, Document document){
 		try{
-			return xpath.evaluate(path, document);
+			String result = XPATH.evaluate(path, document);
+			
+			if(result.equals("")){
+				throw new NoResultException();
+			}
+			
+			return result;
 		}catch(XPathExpressionException xPathExpressionEx){
 			throw new RuntimeException(xPathExpressionEx);
 		}

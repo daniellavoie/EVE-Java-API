@@ -2,8 +2,7 @@ package com.cspinformatique.eve.commons.model;
 
 public class Character {
 	private long eveId;
-	private String keyID;
-	private String vCode;
+	private Key key;
 	
 	private String name;
 	private long corporationId;
@@ -12,12 +11,9 @@ public class Character {
 		
 	}
 
-	public Character(long eveId, String keyID, String vCode, String name,
-			long corporationId) {
-		super();
+	public Character(long eveId, Key key, String name, long corporationId) {
 		this.eveId = eveId;
-		this.keyID = keyID;
-		this.vCode = vCode;
+		this.key = key;
 		this.name = name;
 		this.corporationId = corporationId;
 	}
@@ -30,20 +26,12 @@ public class Character {
 		this.eveId = eveId;
 	}
 
-	public String getKeyID() {
-		return keyID;
+	public Key getKey(){
+		return this.key;
 	}
 
-	public void setKeyID(String keyID) {
-		this.keyID = keyID;
-	}
-
-	public String getvCode() {
-		return vCode;
-	}
-
-	public void setvCode(String vCode) {
-		this.vCode = vCode;
+	public void setKey(Key key) {
+		this.key = key;
 	}
 
 	public String getName() {

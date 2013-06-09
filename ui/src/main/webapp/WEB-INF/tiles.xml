@@ -1,0 +1,40 @@
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+      "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	<definition name="template" template="/WEB-INF/views/tiles/template.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/tiles/header.jsp" />
+		<put-attribute name="menu" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/tiles/footer.jsp" />
+	</definition>
+	
+	<definition name="menuTemplate" template="/WEB-INF/views/tiles/template.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/tiles/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/views/tiles/menu.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/tiles/footer.jsp" />
+	</definition>
+
+	<definition name="character/assets" extends="menuTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/character/assets.jsp" />
+	</definition>
+	
+	<definition name="corporation/assets" extends="menuTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/corporation/assets.jsp" />
+	</definition>
+	
+	<definition name="item/bestTradableItems" extends="menuTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/item/bestTradableItems.jsp" />
+	</definition>
+	
+	<definition name="key/management" extends="menuTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/key/management.jsp" />
+	</definition>
+	
+	<definition name="user/login" extends="template">
+		<put-attribute name="content" value="/WEB-INF/views/user/login.jsp" />
+	</definition>
+	
+	<definition name="user/register" extends="template">
+		<put-attribute name="content" value="/WEB-INF/views/user/register.jsp" />
+	</definition>
+</tiles-definitions>
