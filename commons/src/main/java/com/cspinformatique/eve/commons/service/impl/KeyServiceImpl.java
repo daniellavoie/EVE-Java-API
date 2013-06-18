@@ -78,7 +78,7 @@ public class KeyServiceImpl implements KeyService {
 				accessMask.name().startsWith("Corporation")
 			) && 
 			binaryValue.length() >= accessMask.getBit() && 
-			String.valueOf(binaryValue.charAt(accessMask.getBit() - 1)).equals("1")
+			String.valueOf(binaryValue.charAt(binaryValue.length() - accessMask.getBit())).equals("1")
 		){
 			return true;
 		}

@@ -40,7 +40,7 @@
 			</c:forEach>
 		</select>
 	</article>
-¥	<article>
+	<article>
 		<table>
 			<tr>
 				<th>Name</th>

@@ -20,7 +20,7 @@
 			<c:forEach items="${characters}"  var="character">
 				<c:url 
 					var="characterUrl" 
-					value="/character/${character.eveId}/asset?keyID=${character.key.keyID}/&ascending=true" 
+					value="/character/${character.eveId}/asset?keyID=${character.key.keyID}&ascending=true&sortBy=NAME" 
 				/>
 				<c:choose>
 					<c:when test="${character.eveId eq characterId}">
@@ -40,7 +40,7 @@
 			</c:forEach>
 		</select>
 	</article>
-¥	<article>
+	<article>
 		<table>
 			<tr>
 				<th>Name</th>

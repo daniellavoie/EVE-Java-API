@@ -87,8 +87,13 @@ public class AssetServiceImpl implements AssetService {
 				
 				Station station = parentStation;
 				
-				if(station == null){					
-					station = this.stationService.getStation(Long.parseLong(assetElement.getAttribute("locationID")));
+				if(station == null){
+					long stationID = Long.parseLong(assetElement.getAttribute("locationID"));
+					if(Long.parseLong(assetElement.getAttribute("typeID")) == 27){
+						stationID = stationID - 6000001;
+					}
+					
+					station = this.stationService.getStation(stationID);
 				}
 				
 				List<Asset> assetContent = new ArrayList<Asset>();

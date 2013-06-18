@@ -36,8 +36,7 @@ public class CorporationController {
 	@RequestMapping("/{characterID}/asset")
 	public String getCorporationAssets(
 		Model model,
-		@PathVariable long characterID, 
-		@RequestParam String vCode,
+		@PathVariable long characterID,
 		@RequestParam SortBy sortBy,
 		@RequestParam boolean ascending,
 		Principal principal
@@ -50,7 +49,7 @@ public class CorporationController {
 		model.addAttribute("characterId", characterID);
 		model.addAttribute(
 			"characters", 
-			characterService.getCharacters(
+			characterService.getCorporations(
 				userService.getUser(principal.getName())
 			)
 		);
@@ -89,7 +88,7 @@ public class CorporationController {
 		return 
 			"redirect:/corporation/" + defaultCorporation.getEveId() + 
 			"/asset" +
-			"&sortBy=" + SortBy.NAME +
+			"?sortBy=" + SortBy.NAME +
 			"&ascending=true";
 	}
 }

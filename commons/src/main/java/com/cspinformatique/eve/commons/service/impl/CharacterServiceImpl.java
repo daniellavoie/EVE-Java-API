@@ -92,7 +92,7 @@ public class CharacterServiceImpl implements CharacterService{
 	@Override 
 	public List<Character> getCorporations(User user){
 		List<Character> characters = new ArrayList<Character>();
-		for(Key key : user.getKeys()){
+		for(Key key : this.keyService.getUserKeys(user.getId())){
 			if(key.getType().equals(Key.TYPE_CORPORATION)){
 				for(Character character : this.getCharacters(key)){
 					characters.add(character);
